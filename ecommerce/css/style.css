@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+/* con esto ya no nos preocupamos con cosas inesperadas */
+html{
+    box-sizing: border-box;
+    /*1rem= 10px*/
+    font-size: 62.5%;
+}
+*,*:before,*:after{
+    /* usando el border box respeta
+    el tamaño del width
+    antes se usaba ahora ya no
+    */
+    /* box-sizing: border-box; */
+    box-sizing: inherit;
+}
+body{
+    font-family: "Raleway", sans-serif;
+    /*agregamos font-size para que la base
+    sea 1.6rem*/
+    font-size: 1.6rem;
+    font-optical-sizing: auto; 
+    font-weight: 600;
+    font-style: normal;
+    /*espacio de una parrafo a otro*/
+    line-height: 2;
+}
+h1,
+h2,
+h3{
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 750;
+    font-style: normal;
+    /*todos los headers tienen margen*/
+    margin:0 0 5rem 0;
+}
+h1{
+    font-size: 5rem;
+}
+h2{
+    font-size: 3rem;
+}
+
+h3{
+    font-size: 3rem;
+
+}
+/*Globales*/
+a{
+    text-decoration: none;
+    color: #000;
+}
+.contenedor{
+    max-width: 120rem;
+    /* margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto; */
+    margin:0 auto;
+
+}
+
+img{
+    max-width: 100%;
+    /*con esto solucionamos para que no haya ese margen
+    elimina ese espacio
+    */
+    display: block;
+}
+.btn {
+    background-color: #8cbc00;
+    display: block;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 1rem;
+    transition:background-color .3s ease-out;
+    text-align: center;
+}
+.btn:hover{
+    background-color: #769c02;
+}
+/*por que son cosas que se este reusando*/
+/*utilidades*/
+.text-center{
+    text-align: center;
+}
+.max-width-30{
+    max-width: 30rem;
+}
+
+
+/**Header y navegacion**/
+.nombre-sitio{
+    padding-top: 5rem;
+    text-align: center;
+}
+.nombre-sitio span{
+    color: #037bc0
+}
+
+/*nav principal*/
+
+.contenedor-navegacion{
+    border-top: 0.1rem solid  #e1e1e1;
+    padding:2rem 0;
+}
+.nav-principal{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* las imagenes muy grandes se les conoce hero*/
+.hero{
+    background-image: url(../Img/principal.jpg);
+    /* no repitira la imagen*/
+    background-repeat: no-repeat;
+    /*va estirar la imagen*/
+    background-size: cover;
+    height:75rem;
+}
+
+/**Box model**/
+
+/* las diferencias en display inline y display block
+
+los de block le podemos añadir que tamaño width y height puede tener */
+.categorias{
+    padding:5rem;
+}
+.categorias h2{
+    text-align: center;
+}
+.categoria a{
+    /*como es de elemento de linea
+    entonces lo pasamos a bloque
+    solo abarcara lo nesario para su contenido
+    */
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+}
+.categoria a:hover{
+    background-color: #037bc0;
+    color: white;
+    border-end-end-radius: 1rem;
+}
+/*listado de categorias*/
+.listado-categorias{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    /*separacion en cada cuadro*/
+    gap: 2rem;
+}
+
+/*bloque sobre sobrenosotros*/
+.sobre-nosotros{
+    background-image: linear-gradient(to right,transparent 50%,#037bc0 50%),url(../Img/nosotros.jpg);
+    padding: 10rem 0;
+    background-position: left;
+    background-repeat: no-repeat;
+    /*recuerda que son dos backgrounds
+    linear gradient y la imagen
+    */
+    background-size: 100%,100rem;
+}
+.sobre-nosotros-grid{
+    display: flex;
+    /* displa:grid; */
+    justify-content: flex-end;
+    padding-left: 15rem;
+    /* grid-template-columns: repeat(2,1fr);
+    gap: 15rem; */
+}
+.nosotros-texto{
+    flex-basis: 50%;
+    /* grid-column: 2/3; */
+    color: white;
+}
+
+/**listado de productos**/
+
+.contenido-principal{
+    padding-top: 5rem;
+}
+
+.listado-productos{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap:2rem;
+}
+.producto:nth-child(1){
+    grid-column: 1/7;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.producto:nth-child(1) img{
+    height:43rem;
+    min-height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.producto:nth-child(2){
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.producto:nth-child(2) img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.producto:nth-child(3){
+    grid-column-start: 4;
+    grid-column-end: 7;
+}
+.producto:nth-child(3) img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+.producto:nth-child(4){
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.producto:nth-child(4) img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+.producto:nth-child(5){
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+.producto:nth-child(5) img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+.producto:nth-child(6){
+    grid-column-start: 5;
+    grid-column-end: 7;
+}
+.producto:nth-child(6) img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+.producto{
+    background-color: #037bc0;
+}
+.text-producto{
+    text-align: center;   
+    color: #FFFFFF;
+    padding: 2rem;
+}
+.text-producto h3{
+    margin: 0;
+}
+.text-producto p{
+    margin: 0 0 .5rem 0;
+}
+.text-producto .precio{
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+/*tomar en cuenta la escale si es 1 es %100*/
+
+.footer-menu a{
+    display: block;
+}
+
+
+.site-footer{
+    border-top: 0.1rem solid  #e1e1e1;
+    margin-top: 5rem;
+    padding-top: 5rem;
+}
+.grid-footer {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.copyright{
+    text-align: center;
+    margin-top: 5rem;
+}
+
+/*nostros*/
+
+.contenido-nosotros{
+    display: grid;
+    /* grid-template-columns: 1fr 2fr; */
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    gap: 4rem;
+}
+
+.informacion-nosotros{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*Blog*/
+.contenedor-blog{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+}
+.entrada{
+    border-bottom: 2px solid #e1e1e1;
+    padding-bottom: 4rem;
+    margin-bottom: 2rem;
+}
+.entrada:last-of-type{
+    border-bottom: none;
+}
+.entrada-meta{
+    display: flex;
+    justify-content: space-between;
+}
+.entrada-meta p{
+    font-weight: 700;
+}
+.entrada-meta span{
+    color: #037bc0
+}
+.contenido-entrada-blog{
+    width: 60rem;
+    margin: 0 auto;
+}
+.galeria{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+}
+.galeria img{
+    height: 40rem;
+    width: 40rem;
+    object-fit: cover;
+
+}
