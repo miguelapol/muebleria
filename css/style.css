@@ -75,10 +75,12 @@ img{
     font-weight: 900;
     padding: 1rem;
     transition:background-color .3s ease-out;
+    border: none;
     text-align: center;
 }
 .btn:hover{
     background-color: #769c02;
+    cursor: pointer;
 }
 /*por que son cosas que se este reusando*/
 /*utilidades*/
@@ -344,4 +346,42 @@ los de block le podemos añadir que tamaño width y height puede tener */
     width: 40rem;
     object-fit: cover;
 
+}
+/*Formulario*/
+.formulario{
+    /* width: 80%; */
+    max-width: 60rem;
+    margin: 0 auto;
+}
+.formulario fieldset{
+    border:1px solid black;
+    margin-bottom: 2rem;
+}
+.formulario legend{
+    background-color: #005185;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding:1rem;
+    margin-bottom: 4rem;
+}
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.campo label{
+    /*basis lo que hago
+    por default darle una base
+    */
+    flex-basis: 10rem;
+}
+/*haz cambios en todos menos en radio*/
+.campo input:not([type="radio"]),
+.campo textarea,
+.campo select{
+    flex: 1;
+    border: 1px solid #e1e1e1;
+    padding: 1rem;
 }
