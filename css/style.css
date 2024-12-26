@@ -32,18 +32,32 @@ h3{
     font-weight: 750;
     font-style: normal;
     /*todos los headers tienen margen*/
-    margin:0 0 5rem 0;
+    margin:0 0 2rem 0;
 }
 h1{
-    font-size: 5rem;
+    font-size: 4rem;
+}
+@media (min-width:768px) {
+    h1{
+        font-size: 5rem;
+    }
 }
 h2{
-    font-size: 3rem;
+    font-size: 3.2rem;
+}
+@media (min-width:768px) {
+    h2{
+        font-size: 4rem;
+    }
 }
 
 h3{
-    font-size: 3rem;
-
+    font-size: 2.4rem;
+}
+@media (min-width:768px) {
+    h3{
+        font-size: 3rem;
+    }
 }
 /*Globales*/
 a{
@@ -109,9 +123,15 @@ img{
 }
 .nav-principal{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
-
+@media (min-width:768px) {
+    .nav-principal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
 /* las imagenes muy grandes se les conoce hero*/
 .hero{
     background-image: url(../Img/principal.jpg);
@@ -119,16 +139,20 @@ img{
     background-repeat: no-repeat;
     /*va estirar la imagen*/
     background-size: cover;
-    height:75rem;
+    height:25rem;
 }
-
+@media (min-width:768px) {
+    .hero{
+        height:75rem;
+    }
+}
 /**Box model**/
 
 /* las diferencias en display inline y display block
 
 los de block le podemos añadir que tamaño width y height puede tener */
 .categorias{
-    padding:5rem;
+    padding:4rem 0;
 }
 .categorias h2{
     text-align: center;
@@ -143,44 +167,78 @@ los de block le podemos añadir que tamaño width y height puede tener */
     padding: 2rem;
     font-size: 2rem;
 }
+.categoria img{
+    width: 100%;
+}
+.categoria{
+    margin-bottom: 2rem;
+}
+@media (min-width:768px) {
+    .categoria{
+        margin-bottom: 0;
+    }
+}
 .categoria a:hover{
     background-color: #037bc0;
     color: white;
     border-end-end-radius: 1rem;
 }
+
+@media (min-width:768px) {
 /*listado de categorias*/
 .listado-categorias{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     /*separacion en cada cuadro*/
     gap: 2rem;
+    }
 }
 
 /*bloque sobre sobrenosotros*/
 .sobre-nosotros{
-    background-image: linear-gradient(to right,transparent 50%,#037bc0 50%),url(../Img/nosotros.jpg);
-    padding: 10rem 0;
-    background-position: left;
+    background-image: linear-gradient(to bottom,transparent 50%,#037bc0 50%),url(../Img/nosotros.jpg);
+        /*color tamaño/tamaño imagen*/
+    background-position: center,top left;
     background-repeat: no-repeat;
     /*recuerda que son dos backgrounds
     linear gradient y la imagen
     */
-    background-size: 100%,100rem;
+    background-size: 100%,70rem;
+}
+@media (min-width:768px) {
+    .sobre-nosotros{
+        background-image: linear-gradient(to right,transparent 50%,#037bc0 50%),url(../Img/nosotros.jpg);
+        background-position: left center;
+        padding: 10rem 0;
+        background-size: 100%,160rem;
+    }
 }
 .sobre-nosotros-grid{
-    display: flex;
-    /* displa:grid; */
-    justify-content: flex-end;
-    padding-left: 15rem;
-    /* grid-template-columns: repeat(2,1fr);
-    gap: 15rem; */
+    /* display: flex; */
+    display:grid; 
+    /* justify-content: flex-end; */
+    /* padding-left: 15rem; */
+    grid-template-rows: repeat(2,1fr);
+}
+@media (min-width:768px) {
+    .sobre-nosotros-grid{
+        grid-template-columns: repeat(2,1fr); 
+        grid-template-rows: unset;
+        gap: 10rem; 
+    }
 }
 .nosotros-texto{
-    flex-basis: 50%;
-    /* grid-column: 2/3; */
+    /* flex-basis: 50%; */
+     grid-row: 2/3; 
     color: white;
+    padding: 5rem;
 }
+@media (min-width:768px) {
+    .nosotros-texto{
+         grid-column: 2/3; 
 
+    }
+}
 /**listado de productos**/
 
 .contenido-principal{
