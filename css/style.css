@@ -91,7 +91,18 @@ img{
     transition:background-color .3s ease-out;
     border: none;
     text-align: center;
+    width: 100%;
+    
 }
+/*aqui lo que hara es tomar lo justo su padding margin*/
+@media (min-width:768px) {
+    .btn{
+        width: auto;
+    }
+    
+}
+/*recuerda que el input no se comporta igual que el etiqueta <a
+asi que el otro si tomara el bloque pero el otro le tenemos que decir cuanto*/
 .btn:hover{
     background-color: #769c02;
     cursor: pointer;
@@ -101,10 +112,12 @@ img{
 .text-center{
     text-align: center;
 }
-.max-width-30{
-    max-width: 30rem;
+@media (min-width:768px) {
+    .max-width-30{
+        max-width: 30rem;
+    }
+    
 }
-
 
 /**Header y navegacion**/
 .nombre-sitio{
@@ -229,12 +242,13 @@ los de block le podemos añadir que tamaño width y height puede tener */
 }
 .nosotros-texto{
     /* flex-basis: 50%; */
-     grid-row: 2/3; 
+    grid-row: 2/3; 
     color: white;
     padding: 5rem;
 }
 @media (min-width:768px) {
     .nosotros-texto{
+        grid-row: unset; 
          grid-column: 2/3; 
 
     }
@@ -244,72 +258,84 @@ los de block le podemos añadir que tamaño width y height puede tener */
 .contenido-principal{
     padding-top: 5rem;
 }
+@media (min-width:768px) {
+    .listado-productos{
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        gap:2rem;
+    }
+    .producto:nth-child(1){
+        grid-column: 1/7;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+    .producto:nth-child(1) img{
+        height:43rem;
+        min-height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .producto:nth-child(2){
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .producto:nth-child(2) img {
+        height: 30rem;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .producto:nth-child(3){
+        grid-column-start: 4;
+        grid-column-end: 7;
+    }
+    .producto:nth-child(3) img {
+        height: 30rem;
+        width: 100%;
+        object-fit: cover;
+    }
+    .producto:nth-child(4){
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .producto:nth-child(4) img {
+        height: 30rem;
+        width: 100%;
+        object-fit: cover;
+    }
+    .producto:nth-child(5){
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+    .producto:nth-child(5) img {
+        height: 30rem;
+        width: 100%;
+        object-fit: cover;
+    }
+    .producto:nth-child(6){
+        grid-column-start: 5;
+        grid-column-end: 7;
+    }
+    .producto:nth-child(6) img {
+        height: 30rem;
+        width: 100%;
+        object-fit: cover;
+    } 
+}
 
-.listado-productos{
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    gap:2rem;
-}
-.producto:nth-child(1){
-    grid-column: 1/7;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-}
-.producto:nth-child(1) img{
-    height:43rem;
-    min-height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.producto:nth-child(2){
-    grid-column-start: 1;
-    grid-column-end: 4;
-}
-.producto:nth-child(2) img {
-    height: 30rem;
-    width: 100%;
-    object-fit: cover;
-}
-
-.producto:nth-child(3){
-    grid-column-start: 4;
-    grid-column-end: 7;
-}
-.producto:nth-child(3) img {
-    height: 30rem;
-    width: 100%;
-    object-fit: cover;
-}
-.producto:nth-child(4){
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
-.producto:nth-child(4) img {
-    height: 30rem;
-    width: 100%;
-    object-fit: cover;
-}
-.producto:nth-child(5){
-    grid-column-start: 3;
-    grid-column-end: 5;
-}
-.producto:nth-child(5) img {
-    height: 30rem;
-    width: 100%;
-    object-fit: cover;
-}
-.producto:nth-child(6){
-    grid-column-start: 5;
-    grid-column-end: 7;
-}
-.producto:nth-child(6) img {
-    height: 30rem;
-    width: 100%;
-    object-fit: cover;
-}
 .producto{
     background-color: #037bc0;
+    margin-bottom: 2rem;
+}
+@media (min-width:768px) {
+    .producto{
+        margin-bottom: 0;
+    }
+
+}
+.producto:last-of-type{
+    margin-bottom: 0;
 }
 .text-producto{
     text-align: center;   
@@ -329,20 +355,46 @@ los de block le podemos añadir que tamaño width y height puede tener */
 
 /*tomar en cuenta la escale si es 1 es %100*/
 
-.footer-menu a{
-    display: block;
-}
-
 
 .site-footer{
     border-top: 0.1rem solid  #e1e1e1;
     margin-top: 5rem;
     padding-top: 5rem;
 }
-.grid-footer {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+.site-footer h3{
+    text-align: center;
 }
+@media (min-width:768px) {
+    .site-footer h3{
+        text-align: left;
+    }
+}
+
+@media (min-width:768px) {
+    .grid-footer {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2rem;
+    }
+}
+.grid-footer >div{
+    margin-bottom: 2rem;
+}
+@media (min-width:768px) {
+    .grid-footer >div{
+        margin-bottom: 0rem;
+    }
+}
+.footer-menu a{
+    display: block;
+    text-align: center;
+}
+@media (min-width:768px) {
+    .footer-menu a{
+        text-align: left;
+    }
+}
+
 .copyright{
     text-align: center;
     margin-top: 5rem;
@@ -354,32 +406,64 @@ los de block le podemos añadir que tamaño width y height puede tener */
     display: grid;
     /* grid-template-columns: 1fr 2fr; */
     grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
-    gap: 4rem;
+    column-gap: 4rem;
 }
 
 .informacion-nosotros{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 5rem;
 }
-
+@media (min-width:768px) {
+    .informacion-nosotros{
+        padding: 0;
+    }
+}
 /*Blog*/
-.contenedor-blog{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
+@media (min-width:768px) {
+    .contenedor-blog{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+    
 }
 .entrada{
     border-bottom: 2px solid #e1e1e1;
     padding-bottom: 4rem;
     margin-bottom: 2rem;
 }
+.entrada h2{
+    text-align: center;
+}
+/*aqui ira de 0 a 767px va aplicar, y cuando es mas grande no aplicara*/
+/* @media (max-width:767px) {
+    .entrada h2{
+        text-align: center;
+    }
+} */
+ @media (min-width:768px) {
+    .entrada h2{
+        text-align: left;
+    }
+ }
 .entrada:last-of-type{
     border-bottom: none;
 }
-.entrada-meta{
-    display: flex;
-    justify-content: space-between;
+@media (min-width:768px) {
+    .entrada-meta{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.contenido-blog{
+    padding: 2rem;
+}
+@media (min-width:768px) {
+    .contenido-blog{
+        padding: 0;
+    }
 }
 .entrada-meta p{
     font-weight: 700;
@@ -396,9 +480,15 @@ los de block le podemos añadir que tamaño width y height puede tener */
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
     gap: 2rem;
 }
+@media (min-width:768px) {
+    .galeria{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
 .galeria img{
     height: 40rem;
     width: 40rem;
